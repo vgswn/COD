@@ -22,7 +22,7 @@ int main()
 	
 
 	adr.sin_family=AF_INET;
-	adr.sin_port=htons(1231);
+	adr.sin_port=htons(1234);
 	struct in_addr sin_addr;
 	inet_aton("127.0.0.1",&sin_addr);
 	adr.sin_addr=sin_addr;
@@ -68,7 +68,17 @@ int main()
 			}
 		}
 		s[j]='\0';
-		printf("Received from client %s\n",s);
+		char ts[1024]={0};
+		int tj=0,i;
+		for(i=0;i<strlen(s);i++)
+		{
+			ts[tj++]=s[i];
+			if(s[i]=='*')
+			{
+				i++;
+			}
+		}
+		printf("Received from client %s\n",ts);
 		if(strcmp(s,"bye")==0)
 		{
 			break;

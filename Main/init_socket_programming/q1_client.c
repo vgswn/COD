@@ -22,7 +22,7 @@ int main()
 	
 
 	adr.sin_family=AF_INET;
-	adr.sin_port=htons(1231);
+	adr.sin_port=htons(1234);
 	struct in_addr sin_addr;
 	inet_aton("127.0.0.1",&sin_addr);
 	adr.sin_addr=sin_addr;
@@ -41,6 +41,18 @@ int main()
 	while(1)
 	{
 		scanf("%s",buffer);
+		char nb[1024];
+		int nbs=0;
+		for(i=0;i<strlen(buffer);i++)
+		{
+			nb[nbs++]=buffer[i];
+			if(buffer[i]=='*')
+			{
+				nb[nbs++]='*';
+			}
+		}
+		nb[nbs]='\0';
+		strcpy(buffer,nb);
 		j=0;
 		for(i=1;i<=strlen(buffer)/2;i++)
 		{
