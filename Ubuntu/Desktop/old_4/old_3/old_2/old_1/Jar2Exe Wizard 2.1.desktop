@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Jar2Exe Wizard 2.1
+Exec=env WINEPREFIX="/home/vips/.wine" wine C:\\\\Program\\ Files\\ \\(x86\\)\\\\Jar2Exe\\ Wizard\\\\j2ewiz.exe 
+Type=Application
+StartupNotify=true
+Comment=Jar to Exe convert wizard tool
+Path=/home/vips/.wine/dosdevices/c:/Program Files (x86)/Jar2Exe Wizard/
+Icon=E990_j2ewiz.0
