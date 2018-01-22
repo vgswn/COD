@@ -1,6 +1,0 @@
-iptables -A INPUT -s IP-ADDRESS -j DROP
-iptables -L INPUT -v -n 
-iptables -A INPUT -m mac --mac-source 00:0F:EA:91:04:08 -j DROP
-
-sudo iptables -A INPUT -p tcp --dport 80 -j DROP
-
