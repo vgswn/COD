@@ -24,46 +24,46 @@ int check_keyword(char *s)
 }
 int main()
 {
-	int n,count=1;
-	n=yylex();
-	printf("%d\n",n );
-	while(n)
+	int retvalue,count=1;
+	retvalue=yylex();
+	//printf("%d\n",retvalue);
+	while(retvalue)
 	{
-		if (n==IF)
+		if (retvalue==IF)
 		{
-				printf("Found IF BLOCK %s from line number %d\n",yytext,count);
+				printf("If Block  \"%s\" starts  from line number %d\n\n",yytext,count);
 
 		}
-		else if(n==ELSE){
-				printf("Found ELSE BLOCK %s from line number %d\n",yytext,count);
+		else if(retvalue==ELSE){
+				printf(" Else Block \"%s\" starts from line number %d\n\n",yytext,count);
 		}
 
-			else if(n==IDENTIFIER)
+			else if(retvalue==IDENTIFIER)
 		{
 			if(check_keyword(yytext))
 			{
-				printf("Found KEYWORD %s at line number %d\n",yytext,count);
+				printf("Keyword \"%s\" at line number %d\n\n",yytext,count);
 			}
 			else
 			{
-				printf("Found IDENTIFIER %s at line number %d\n",yytext,count);
+				printf("Identifier \"%s\" at line number %d\n\n",yytext,count);
 			}
 
 		}
-		else if(n==NUMBER)
+		else if(retvalue==NUMBER)
 		{
-			printf("Found NUMBER %s at line number %d\n",yytext,count);
+			printf("Unsigned Number \"%s\" at line number %d\n\n",yytext,count);
 		}
-		else if(n==NEWLINE){
+		else if(retvalue==NEWLINE){
 			count++;
 		}
-		else if(n==FOR){
-			printf("Found FOR %s at line number %d\n",yytext,count);
+		else if(retvalue==FOR){
+			printf("Loop : For ->  \"%s\" at line number %d\n\n",yytext,count);
 		}
-		else if(n==WHILE){
-			printf("Found WHILE %s at line number %d\n",yytext,count);
+		else if(retvalue==WHILE){
+			printf("Loop : While -> \"%s\" at line number %d\n\n",yytext,count);
 		}
-		n=yylex();
+		retvalue=yylex();
 	}
 	return 0;
 }
