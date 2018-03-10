@@ -1,40 +1,40 @@
 %{
 	#include <stdio.h>
 	#include <stdlib.h>
-	void yyerror(char *s);	
-	extern char * yytext;
 %}
 
-%union {int num;char iden[105];}
+%token id num
 %start E
-%token <iden> id
-%type <iden> E T F 
 
 %%
 
-E : E '+' T {;}
-	| T {;}
+E : E '+' T 
+	| T 
 	;
 
-T : T '*' F  {;}
-	| F   {;}
+T : T '*' F  
+	| F   
 	;
 
-
-F : '(' E ')' {;}
-	| id {;}
+ 
+F : '(' E ')'
+	| id 
 	;
 
 %%
+
 
 int main()
 {
-	return yyparse();
+	yyparse();
+	printf("Valid\n");
+	exit(0);
 }
 
-void yyerror (char *s) 
+void yyerror() 
 {
-	fprintf (stderr, "%s %s\n", s,yytext);
+	printf("Error\n");
+	exit(0);
 } 
 
 

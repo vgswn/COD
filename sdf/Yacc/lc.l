@@ -1,19 +1,19 @@
 %{
-	#include "y.tab.h"
-	#include <string.h>
+    #include "y.tab.h"
 %}
 
-
 %%
 
+[0-9]+ {return num;};
 
-[\+\*\(\)]				   	{return yytext[0];}
-"id"			   	{strcpy(yylval.iden,yytext); return id;}
-[ \t\n]             {;}
-.                  	{ECHO; yyerror ("unexpected character");}
-
+"id" {return id;};
+[ \t] {;};
+[\n] {return 0;};
+[\+\*\(\)] {return yytext[0];};
+.   {yyerror();};
 %%
-int yywrap (void) 
+
+int yywrap()
 {
-	return 1;
+    return 1;
 }

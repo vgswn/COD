@@ -90,7 +90,7 @@ int main()
   prod[7]="F->(E)";
   prod[8]="F->i";
 
-  cout<<"Enter M N"<<endl;
+  cout<<"Enter parsing table"<<endl;
   int m,n,i,j;
   cin>>m>>n;
   for(i=0;i<m;i++)
@@ -113,7 +113,6 @@ int main()
   cin>>no;
   while(no--)
   {
-    cout<<"Enter String\n";
     string s;
     cin>>s;
     if(parse(s+"$"))
